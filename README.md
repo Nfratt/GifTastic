@@ -1,2 +1,2 @@
 # GifTastic
-Utilizeing the 
+Utilizeing the Giphy API
