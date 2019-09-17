@@ -1,4 +1,4 @@
-var Animals = ["Cats", "Dogs", "Birds", "Snakes"];
+var topics= ["Cats", "Dogs", "Birds", "Snakes"];
 
 
 
@@ -25,11 +25,11 @@ var Animals = ["Cats", "Dogs", "Birds", "Snakes"];
     });
       function buttonspos() {
         $('#buttons-view').empty();
-        for (var i = 0; i < Animals.length; i++) {
+        for (var i = 0; i < topics.length; i++) {
           var b = $("<button>")
           b.addClass('animal');
-          b.attr('data-name', Animals[i]);
-          b.text(Animals[i])
+          b.attr('data-name', topics[i]);
+          b.text(topics[i])
           $("#buttons-view").append(b);
         }
       }
@@ -39,7 +39,7 @@ var Animals = ["Cats", "Dogs", "Birds", "Snakes"];
 
         
         var cute = $("#animal-input").val().trim()
-        Animals.push(cute);
+        topics.push(cute);
         buttonspos();
     });
 
