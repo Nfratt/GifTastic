@@ -1,8 +1,6 @@
 var topics= ["Cats", "Dogs", "Birds", "Snakes"];
 
 
-
-
     $("#buttons-view"). on("click",function(){
       var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=kitten";
       $.ajax({
