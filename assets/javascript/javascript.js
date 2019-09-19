@@ -9,19 +9,20 @@ var topics= ["Cats", "Dogs", "Birds", "Snakes"];
         method: "GET"
       }) 
       .then(function(response){
-        var imageUrl = Response.data;
-          //setting up the cat image var and giving it an image tag 
+        var imageUrl = response.data;
+        for (var i = 0; i < imageUrl.length; i++) {
+          //setting up the animal image var and giving it an image tag 
           var aniImage = $("<img>");
 
           // giving our   var an attribute of source and the image we pulled/ assinging each image the alt cat image 
-          aniImage.attr("src", imageUrl);
+          aniImage.attr("src", imageUrl[i].images.fixes_height);
           aniImage.attr("alt", "animal image");
           
 
 
           //telling it to write the image to the page before the one that was priviously pulled  after the img tag has been applied 
           $("#gifs-go-here").prepend(aniImage)
-      
+        }
   
       $("#add-animal").on("click", function (event) {
         
