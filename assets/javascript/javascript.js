@@ -1,9 +1,11 @@
 var topics= ["Cats", "Dogs", "Birds", "Snakes"];
-
+  var input=$(this).attr("data-name");
 
     $("#buttons-view"). on("click",function(){
+  
+      $("#gifs-go-here").empty();
       var queryURL = "https://api.giphy.com/v1/gifs/search?q="+
-      topics +"&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+      input +"&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -11,13 +13,23 @@ var topics= ["Cats", "Dogs", "Birds", "Snakes"];
       .then(function(response){
         var imageUrl = response.data;
         for (var i = 0; i < imageUrl.length; i++) {
+         
           //setting up the animal image var and giving it an image tag 
           var aniImage = $("<img>");
 
-          // giving our   var an attribute of source and the image we pulled/ assinging each image the alt cat image 
-          aniImage.attr("src", imageUrl[i].images.fixes_height);
-          aniImage.attr("alt", "animal image");
           
+          // giving our   var an attribute of source and the image we pulled/ assinging each image the alt cat image 
+          aniImage.attr("src",imageUrl[i].images.original.url)
+          aniImage.attr("data-still", imageUrl[i].images.original_still.url);
+          aniImage.attr("data-animate", imageUrl[i].images.original.url);
+          aniImage.attr("alt", "animal image");
+          aniImage.attr("data-state","still");
+          aniImage.attr("class","gif");
+         
+          var rating = response.data[i].rating;
+                console.log(response);
+                var pRating = $("<p>").text("Rating: " + rating);
+               aniImage.append(pRating)
 
 
           //telling it to write the image to the page before the one that was priviously pulled  after the img tag has been applied 
