@@ -5,7 +5,7 @@ var topics= ["Cats", "Dogs", "Birds", "Snakes"];
   
       $("#gifs-go-here").empty();
       var queryURL = "https://api.giphy.com/v1/gifs/search?q="+
-      input +"&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+      input +"(KEY HERE)";
       $.ajax({
         url: queryURL,
         method: "GET"
